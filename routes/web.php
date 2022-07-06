@@ -19,6 +19,8 @@ use App\Http\Controllers\TodolistController;
 |
 */
 
+Auth::routes();
+
 Route::get('/', function () {
     return redirect()->route('login');
 });
@@ -37,6 +39,6 @@ Route::get('edit/{id}', 'App\Http\Controllers\TodolistController@edit');
 
 Route::get('update_list/{id}', 'App\Http\Controllers\TodolistController@update');
 
-Auth::routes();
+
 
 Route::get('/login', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
