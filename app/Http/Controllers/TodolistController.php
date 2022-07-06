@@ -39,4 +39,18 @@ class TodolistController extends Controller
         $todo->save();
         return redirect('/index');
     }
+
+
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\todolist  $todolist
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(todolist $todolist, $id)
+    {
+        $todo = todolist::find($id);
+        return view('edit_list')->with('todo_arr', $todo);
+    }
 }
