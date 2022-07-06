@@ -53,4 +53,18 @@ class TodolistController extends Controller
         $todo = todolist::find($id);
         return view('edit_list')->with('todo_arr', $todo);
     }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\todolist  $todolist
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, todolist $todolist, $id)
+    {
+        $todo = todolist::find($id);
+        $todo->name = $request->input('name');
+        $todo->save();
+        return redirect('/index');
+    }
 }
