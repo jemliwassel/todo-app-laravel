@@ -67,4 +67,15 @@ class TodolistController extends Controller
         $todo->save();
         return redirect('/index');
     }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\todolist  $todolist
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(todolist $todolist, $id)
+    {
+        $row = todolist::destroy($id);
+        return redirect('/index');
+    }
 }
