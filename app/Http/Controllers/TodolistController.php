@@ -25,4 +25,18 @@ class TodolistController extends Controller
     {
         return view('create_new_list');
     }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //return $request->input('name');
+        $todo = new todolist();
+        $todo->name = $request->input('name');
+        $todo->save();
+        return redirect('/index');
+    }
 }
