@@ -16,4 +16,13 @@ class TodolistController extends Controller
     {
         return view('view_list')->with('todo_arr', todolist::all());
     }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('create_new_list');
+    }
 }
